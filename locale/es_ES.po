@@ -1,0 +1,213 @@
+# 
+msgid ""
+msgstr "Content-Type: text/plain; charset=utf-8\n"
+
+msgctxt "error:party.sector:"
+msgid "Invalid sector name \"%s\": You can not use \" / \" in name field."
+msgstr ""
+"El nombre del sector \"%s\" es inválido. No se puede utilizar \" / \" en el "
+"campo nombre."
+
+msgctxt "error:party.sector:"
+msgid "The name of a party sector must be unique by parent."
+msgstr "El nombre del sector debe ser único por padre."
+
+msgctxt "field:party.party,products:"
+msgid "products"
+msgstr "Productos"
+
+msgctxt "field:party.party,related_sectors:"
+msgid "Sectors"
+msgstr "Sectors"
+
+msgctxt "field:party.party,sectors:"
+msgid "Sectors"
+msgstr "Sectors"
+
+msgctxt "field:party.party-party.sector,create_date:"
+msgid "Create Date"
+msgstr "Fecha de creación"
+
+msgctxt "field:party.party-party.sector,create_uid:"
+msgid "Create User"
+msgstr "Usuario de creación"
+
+msgctxt "field:party.party-party.sector,id:"
+msgid "ID"
+msgstr "Identificador"
+
+msgctxt "field:party.party-party.sector,party:"
+msgid "Party"
+msgstr "Tercero"
+
+msgctxt "field:party.party-party.sector,rec_name:"
+msgid "Name"
+msgstr "Nombre"
+
+msgctxt "field:party.party-party.sector,sector:"
+msgid "Sector"
+msgstr "Sector"
+
+msgctxt "field:party.party-party.sector,write_date:"
+msgid "Write Date"
+msgstr "Fecha modificación"
+
+msgctxt "field:party.party-party.sector,write_uid:"
+msgid "Write User"
+msgstr "Usuario modificación"
+
+msgctxt "field:party.sector,active:"
+msgid "Active"
+msgstr "Activo"
+
+msgctxt "field:party.sector,childs:"
+msgid "Children"
+msgstr "Hijos"
+
+msgctxt "field:party.sector,create_date:"
+msgid "Create Date"
+msgstr "Fecha de creación"
+
+msgctxt "field:party.sector,create_uid:"
+msgid "Create User"
+msgstr "Usuario de creación"
+
+msgctxt "field:party.sector,id:"
+msgid "ID"
+msgstr "Identificador"
+
+msgctxt "field:party.sector,name:"
+msgid "Name"
+msgstr "Nombre"
+
+msgctxt "field:party.sector,parent:"
+msgid "Parent"
+msgstr "Padre"
+
+msgctxt "field:party.sector,rec_name:"
+msgid "Name"
+msgstr "Nombre"
+
+msgctxt "field:party.sector,write_date:"
+msgid "Write Date"
+msgstr "Fecha modificación"
+
+msgctxt "field:party.sector,write_uid:"
+msgid "Write User"
+msgstr "Usuario modificación"
+
+msgctxt "field:product.product,parties:"
+msgid "Parties"
+msgstr "Terceros"
+
+msgctxt "field:product.product,related_sectors:"
+msgid "Sectors"
+msgstr "Sectors"
+
+msgctxt "field:product.product,sectors:"
+msgid "Sectors"
+msgstr "Sectors"
+
+msgctxt "field:product.product-party.sector,create_date:"
+msgid "Create Date"
+msgstr "Fecha de creación"
+
+msgctxt "field:product.product-party.sector,create_uid:"
+msgid "Create User"
+msgstr "Usuario de creación"
+
+msgctxt "field:product.product-party.sector,id:"
+msgid "ID"
+msgstr "Identificador"
+
+msgctxt "field:product.product-party.sector,product:"
+msgid "Product"
+msgstr "Productos"
+
+msgctxt "field:product.product-party.sector,rec_name:"
+msgid "Name"
+msgstr "Nombre"
+
+msgctxt "field:product.product-party.sector,sector:"
+msgid "Sector"
+msgstr "Sector"
+
+msgctxt "field:product.product-party.sector,write_date:"
+msgid "Write Date"
+msgstr "Fecha modificación"
+
+msgctxt "field:product.product-party.sector,write_uid:"
+msgid "Write User"
+msgstr "Usuario modificación"
+
+msgctxt "model:ir.action,name:act_party_product"
+msgid "Products"
+msgstr "Productos"
+
+msgctxt "model:ir.action,name:act_product_party"
+msgid "Parties"
+msgstr "Terceros"
+
+msgctxt "model:ir.action,name:act_related_party"
+msgid "Parties"
+msgstr "Terceros"
+
+msgctxt "model:ir.action,name:act_related_product"
+msgid "Products"
+msgstr "Productos"
+
+msgctxt "model:ir.action,name:act_sector_list"
+msgid "Sectors"
+msgstr "Sectors"
+
+msgctxt "model:ir.action,name:act_sector_list_product"
+msgid "Sectors"
+msgstr "Sectors"
+
+msgctxt "model:ir.action,name:act_sector_tree"
+msgid "Sectors"
+msgstr "Sectors"
+
+msgctxt "model:ir.action,name:act_sector_tree_product"
+msgid "Sectors"
+msgstr "Sectors"
+
+msgctxt "model:ir.ui.menu,name:menu_sector_list"
+msgid "Sectors"
+msgstr "Sectors"
+
+msgctxt "model:ir.ui.menu,name:menu_sector_list_product"
+msgid "Sectors"
+msgstr "Sectors"
+
+msgctxt "model:ir.ui.menu,name:menu_sector_tree"
+msgid "Sectors"
+msgstr "Sectors"
+
+msgctxt "model:ir.ui.menu,name:menu_sector_tree_product"
+msgid "Sectors"
+msgstr "Sectors"
+
+msgctxt "model:party.party-party.sector,name:"
+msgid "Party - Sector"
+msgstr "Tercero - Sector"
+
+msgctxt "model:party.sector,name:"
+msgid "Sector"
+msgstr "Sector"
+
+msgctxt "model:product.product-party.sector,name:"
+msgid "Product - Sector"
+msgstr "Producto - Sector"
+
+msgctxt "view:party.party:"
+msgid "Sectors"
+msgstr "Sectors"
+
+msgctxt "view:party.sector:"
+msgid "Sector"
+msgstr "Sector"
+
+msgctxt "view:party.sector:"
+msgid "Sectors"
+msgstr "Sectors"
