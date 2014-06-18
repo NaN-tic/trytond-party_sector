@@ -11,7 +11,7 @@ __all__ = ['Sector', 'PartySector', 'Party', 'ProductSector', 'Product',
 __metaclass__ = PoolMeta
 
 STATES = {
-    'readonly': Eval('active'),
+    'readonly': Eval('active', False),
 }
 DEPENDS = ['active']
 
