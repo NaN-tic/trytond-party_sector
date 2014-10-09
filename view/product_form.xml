@@ -1,8 +1,0 @@
-<?xml version="1.0"?>
-<!-- The COPYRIGHT file at the top level of this repository contains the full
-     copyright notices and license terms. -->
-<data>
-    <xpath expr="/form/field[@name='description']" position="after">
-        <field name="related_sectors" widget="multiselection" colspan="6"/>
-    </xpath>
-</data>

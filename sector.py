@@ -6,12 +6,12 @@ from trytond.pyson import Eval, PYSONEncoder
 from trytond.transaction import Transaction
 from trytond.wizard import Wizard, StateTransition, StateAction
 
-__all__ = ['Sector', 'PartySector', 'Party', 'ProductSector', 'Product',
+__all__ = ['Sector', 'Party', 'PartySector', 'Template', 'TemplateSector',
     'OpenSector']
 __metaclass__ = PoolMeta
 
 STATES = {
-    'readonly': Eval('active', False),
+    'readonly': ~Eval('active', False),
 }
 DEPENDS = ['active']
 
@@ -99,6 +99,38 @@ class SectorRelatedMixin:
                 })
 
 
+class Party(SectorRelatedMixin):
+    __name__ = 'party.party'
+
+    sectors = fields.Many2Many('party.party-party.sector', 'party', 'sector',
+        'Sectors')
+    products = fields.Function(fields.Many2Many('product.template', None, None,
+            'Products'),
+        'get_products', searcher='search_products')
+
+    def get_products(self, name):
+        pool = Pool()
+        Template = pool.get('product.template')
+
+        products = Template.search([
+                ('sectors', 'child_of', [x.id for x in self.sectors],
+                    'parent'),
+                ])
+        return [x.id for x in products]
+
+    @classmethod
+    def search_products(cls, name, clause):
+        pool = Pool()
+        Template = pool.get('product.template')
+
+        products = Template.search([tuple(('id',)) + tuple(clause[1:])])
+        sectors = set()
+        for product in products:
+            for sector in product.sectors:
+                sectors.add(sector.id)
+        return [('sectors', 'in', list(sectors))]
+
+
 class PartySector(ModelSQL):
     'Party - Sector'
     __name__ = 'party.party-party.sector'
@@ -109,50 +141,10 @@ class PartySector(ModelSQL):
         required=True, ondelete='CASCADE')
 
 
-class Party(SectorRelatedMixin):
-    __name__ = 'party.party'
+class Template(SectorRelatedMixin):
+    __name__ = 'product.template'
 
-    sectors = fields.Many2Many('party.party-party.sector', 'party', 'sector',
-        'Sectors')
-    products = fields.Function(fields.Many2Many('product.product', None, None,
-            'products'),
-        'get_products', searcher='search_products')
-
-    def get_products(self, name):
-        pool = Pool()
-        Product = pool.get('product.product')
-        products = Product.search([
-                ('sectors', 'child_of', [x.id for x in self.sectors],
-                    'parent'),
-                ])
-        return [x.id for x in products]
-
-    @classmethod
-    def search_products(cls, name, clause):
-        pool = Pool()
-        Product = pool.get('product.product')
-        products = Product.search([tuple(('id',)) + tuple(clause[1:])])
-        sectors = set()
-        for product in products:
-            for sector in product.sectors:
-                sectors.add(sector.id)
-        return [('sectors', 'in', list(sectors))]
-
-
-class ProductSector(ModelSQL):
-    'Product - Sector'
-    __name__ = 'product.product-party.sector'
-
-    product = fields.Many2One('product.product', 'Product', select=True,
-        required=True, ondelete='CASCADE')
-    sector = fields.Many2One('party.sector', 'Sector', select=True,
-        required=True, ondelete='CASCADE')
-
-
-class Product(SectorRelatedMixin):
-    __name__ = 'product.product'
-
-    sectors = fields.Many2Many('product.product-party.sector', 'product',
+    sectors = fields.Many2Many('product.template-party.sector', 'template',
         'sector', 'Sectors')
     parties = fields.Function(fields.Many2Many('party.party', None, None,
             'Parties'),
@@ -177,6 +169,16 @@ class Product(SectorRelatedMixin):
             for sector in party.sectors:
                 sectors.add(sector.id)
         return [('sectors', 'in', list(sectors))]
+
+
+class TemplateSector(ModelSQL):
+    'Product Template - Sector'
+    __name__ = 'product.template-party.sector'
+
+    template = fields.Many2One('product.template', 'Product Template',
+        select=True, required=True, ondelete='CASCADE')
+    sector = fields.Many2One('party.sector', 'Sector', select=True,
+        required=True, ondelete='CASCADE')
 
 
 class OpenSector(Wizard):

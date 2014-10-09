@@ -7,10 +7,10 @@ from .sector import *
 def register():
     Pool.register(
         Sector,
-        PartySector,
         Party,
-        ProductSector,
-        Product,
+        PartySector,
+        Template,
+        TemplateSector,
         module='party_sector', type_='model')
     Pool.register(
         OpenSector,
